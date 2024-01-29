@@ -8,12 +8,14 @@ export async function POST(req: Request, res: NextApiResponse) {
     return;
   }
 
+  const key: string = process.env.NEXT_PUBLIC_GOOGLE_KEY!;
+
   try {
     const response = await fetch('https://places.googleapis.com/v1/places:searchText', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'X-Goog-Api-Key': 'AIzaSyCkxBZn6uAU5QxsFjkWEjfyYnZeeRHaYqI',
+        'X-Goog-Api-Key': key,
         'X-Goog-FieldMask': 'places.displayName,places.formattedAddress,places.priceLevel',
   
       },
